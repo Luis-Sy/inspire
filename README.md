@@ -49,4 +49,4 @@ This is meant to be a productivity tracking app that also provides readable stat
 
 -the app will store information about tasks and user statistics locally
 
-
+-a feature that allows sharing statistics to social media platforms will be considered
