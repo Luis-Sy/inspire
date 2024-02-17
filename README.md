@@ -1,3 +1,8 @@
+App name TBD
+
+This is meant to be a productivity tracking app that also provides readable statistics on the user's performance
+
+
 # App features
 
 ## Home Screen
@@ -43,3 +48,5 @@
 -ideally, the app will notify the user of upcoming deadlines and feedback on how productive they are
 
 -the app will store information about tasks and user statistics locally
+
+
