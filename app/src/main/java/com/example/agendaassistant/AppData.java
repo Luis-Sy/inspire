@@ -61,7 +61,7 @@ public class AppData extends Application {
             File file = new File (path, "user_data.json");
             try {
                 // create the file output stream, write to file, and then close
-                FileOutputStream stream = new FileOutputStream(file, true);
+                FileOutputStream stream = new FileOutputStream(file, false);
                 stream.write(UserData.toString().getBytes());
                 stream.write("\n".getBytes());
                 stream.close();
