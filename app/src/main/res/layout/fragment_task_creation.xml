@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TaskCreation">
+
+    <EditText
+        android:id="@+id/taskNameText"
+        android:layout_width="265dp"
+        android:layout_height="60dp"
+        android:ems="10"
+        android:hint="Task Name"
+        android:inputType="text"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.072" />
+
+    <EditText
+        android:id="@+id/taskDeadlineText"
+        android:layout_width="265dp"
+        android:layout_height="60dp"
+        android:ems="10"
+        android:hint="Deadline (DD/MM/YYYY)"
+        android:inputType="date"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/taskNameText"
+        app:layout_constraintVertical_bias="0.108" />
+
+    <EditText
+        android:id="@+id/taskDescriptionText"
+        android:layout_width="284dp"
+        android:layout_height="316dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="Task Description"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/taskDeadlineText"
+        app:layout_constraintVertical_bias="0.2" />
+
+    <Button
+        android:id="@+id/createTaskBtn"
+        android:layout_width="179dp"
+        android:layout_height="64dp"
+        android:onClick="createTask"
+        android:text="Create Task"
+        android:textSize="24sp"
+        app:cornerRadius="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/taskDescriptionText"
+        app:layout_constraintVertical_bias="0.303" />
+</androidx.constraintlayout.widget.ConstraintLayout>

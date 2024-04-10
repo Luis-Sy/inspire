@@ -8,4 +8,8 @@
         android:id="@+id/taskView"
         android:title="Tasks"
         android:icon="@drawable/ic_task_view_foreground"/>
+    <item
+        android:id="@+id/taskCreate"
+        android:title="Create Task"
+        android:icon="@drawable/ic_task_create_foreground"/>
 </menu>
