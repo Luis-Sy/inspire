@@ -39,6 +39,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
         // initialize user data on first app launch
         AppData.initialize();
+
     }
 
     // set fragment references

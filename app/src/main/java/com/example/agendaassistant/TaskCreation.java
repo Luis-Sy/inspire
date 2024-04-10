@@ -72,6 +72,7 @@ public class TaskCreation extends Fragment {
                 data.put("task_name", taskName.getText());
                 data.put("task_deadline", taskDeadline.getText());
                 data.put("task_description", taskDescription.getText());
+                data.put("task_completed", false);
 
                 AppData.getInstance().saveUserData(data, getContext());
                 Toast.makeText(this.getContext(), "Task successfully created",Toast.LENGTH_SHORT).show();
