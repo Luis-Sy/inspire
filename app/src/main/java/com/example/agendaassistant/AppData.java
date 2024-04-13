@@ -107,11 +107,47 @@ public class AppData extends Application {
         return this.UserData;
     }
 
-    public void setUserData(JSONArray data){
-        UserData = data;
+    public void updateUserData(Context context){
+        //Getting a file path to save.
+
+        File path = context.getExternalFilesDir(Environment.DIRECTORY_DOCUMENTS);
+        if (path != null){
+            //Creating the file.
+            File file = new File (path, "user_data.json");
+            try {
+                // create the file output stream, write to file, and then close
+                FileOutputStream stream = new FileOutputStream(file, false);
+                stream.write(UserData.toString().getBytes());
+                stream.write("\n".getBytes());
+                stream.close();
+            } catch (IOException e){
+                throw new RuntimeException(e);
+            }
+            // reload the data regardless of result
+            loadUserData(context);
+        }
     }
-    public JSONArray getUserData(){
-        return UserData;
+
+    public void completeTask(int id, Context context) {
+
+        // update the
+        try{
+            UserData.getJSONObject(id).put("task_completed", true);
+            updateUserData(context);
+
+        }catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
     }
+
+    /* TODO
+    *
+    *
+    * -checking whether or not a task's deadline has passed
+    * -task completion statistics on home screen
+    * -AppData method that checks for tasks past deadline and deleting them
+    *
+    *
+    * */
 
 }

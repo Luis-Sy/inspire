@@ -2,4 +2,16 @@
     <string name="app_name">Agenda Assistant</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <!-- task data view items -->
+    <string name="task_view_data_button_incomplete">Mark as Complete</string>
+    <string name="task_view_data_button_complete">Task Completed</string>
+    <string name="task_completion_status_incomplete">Task Incomplete</string>
+    <string name="task_completion_status_complete">Completed</string>
+    <!--  placeholders  -->
+    <string name="task_name_placeholder">Task Name</string>
+    <string name="task_description_placeholder">Task Description</string>
+    <string name="task_deadline_placeholder">Task Deadline: XX/YY/ZZZZ</string>
+
 </resources>
