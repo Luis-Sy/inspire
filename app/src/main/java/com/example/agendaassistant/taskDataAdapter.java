@@ -12,12 +12,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+/** Adapter for the RecyclerView used in the TaskView Class
+ *
+ *
+ * @author Luis Marlou Sy
+ * */
 
 public class taskDataAdapter extends RecyclerView.Adapter<taskDataAdapter.ViewHolder> {
 
-    // there will only ever be one screen that uses the adapter, so having these static shouldn't be an issue
+
     private static JSONArray user_data;
-    private RecyclerView recyclerView;
+    private final RecyclerView recyclerView;
 
     public taskDataAdapter(JSONArray userData, RecyclerView recyclerView) {
         user_data = userData;
@@ -48,10 +53,9 @@ public class taskDataAdapter extends RecyclerView.Adapter<taskDataAdapter.ViewHo
             holder.taskCompletionButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
+                    // hack fix to ensure the adapter position is never -1
                     int index = holder.getAdapterPosition();
-
-                if(index < 0){
+                    if(index < 0){
                     index = 0;
                 }
                     AppData.getInstance().completeTask(index, holder.itemView.getContext());
@@ -109,43 +113,6 @@ public class taskDataAdapter extends RecyclerView.Adapter<taskDataAdapter.ViewHo
             taskDescriptionView.setEnabled(false);
 
             taskCompletionButton = itemView.findViewById(R.id.taskCompletionButton);
-
-//            try {
-//
-//                // the adapter throws -1 when trying to get its adapter position
-//                // but this hack fixes it so I guess all's well that ends well
-//                int index = getAdapterPosition();
-//
-//                if(index < 0){
-//                    index = 0;
-//                }
-//
-//                JSONObject task = user_data.getJSONObject(index);
-//
-//                boolean completed = task.getBoolean("task_completed");
-//
-//                taskCompletionButton.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//                        AppData.getInstance().completeTask(getAdapterPosition(), itemView.getContext());
-//                        notifyDataSetChanged();
-//                    }
-//                });
-//
-//                // enable/disable taskCompletionButton if the task is already completed or not
-//                if(completed){
-//                    taskCompletionButton.setText(R.string.task_view_data_button_complete);
-//                    taskCompletionButton.setEnabled(false);
-//                    taskCompletionButton.setOnClickListener(null);
-//                }else{
-//                    taskCompletionButton.setText(R.string.task_view_data_button_incomplete);
-//                    taskCompletionButton.setEnabled(true);
-//                }
-//
-//            } catch (JSONException e) {
-//                throw new RuntimeException(e);
-//            }
-
 
 
         }

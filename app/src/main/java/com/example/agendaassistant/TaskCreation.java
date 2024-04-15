@@ -17,6 +17,11 @@ import org.json.JSONObject;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+
+/** Fragment that handles task creation by the user
+ *
+ * @author Luis Marlou Sy
+ * */
 public class TaskCreation extends Fragment {
 
 
@@ -46,6 +51,12 @@ public class TaskCreation extends Fragment {
         return returnView;
     }
 
+    /** Method that creates a task using input from the task creation fragment
+     * <p>Verifies both Task Name and Task Deadline for valid input</p>
+     * <p>Task description is optional</p>
+     *
+     * @author Luis Marlou Sy
+     * */
     public void createTask(){
 
         // validate task data before writing it to file
@@ -56,7 +67,7 @@ public class TaskCreation extends Fragment {
             taskName.requestFocus();
             Toast.makeText(this.getContext(), "Please enter a task name",Toast.LENGTH_SHORT).show();
 
-        }else if(!isValidDateFormat(taskDeadline.getText().toString(), "dd/mm/yyyy")){
+        }else if(!isValidDateFormat(taskDeadline.getText().toString(), "dd/MM/yyyy")){
 
             // no valid task deadline
             taskDeadline.requestFocus();
@@ -68,6 +79,7 @@ public class TaskCreation extends Fragment {
             JSONObject data = new JSONObject();
 
             try{
+
 
                 data.put("task_name", taskName.getText());
                 data.put("task_deadline", taskDeadline.getText());
@@ -81,14 +93,21 @@ public class TaskCreation extends Fragment {
                 taskDeadline.setText("");
                 taskDescription.setText("");
 
-            }catch (JSONException e){
+            }catch (JSONException | ParseException e){
                 System.out.println("Could not create data");
+                Toast.makeText(this.getContext(), "Could not create task",Toast.LENGTH_SHORT).show();
+
             }
         }
 
 
     }
 
+    /** Method that verifies the user's entered date before createTask() makes a call to AppData
+     *
+     * @author Luis Marlou Sy
+     * @return boolean
+     * */
     private boolean isValidDateFormat(String dateString, String format) {
         SimpleDateFormat sdf = new SimpleDateFormat(format);
         sdf.setLenient(false); // Set lenient to false to strictly enforce the format

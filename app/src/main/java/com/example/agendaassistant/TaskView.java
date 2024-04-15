@@ -10,8 +10,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import org.json.JSONException;
+
 import java.util.Objects;
 
+
+/** Fragment that handles the display of user-created tasks
+ *
+ * @author Luis Marlou Sy
+ * */
 public class TaskView extends Fragment {
 
     private RecyclerView recyclerView;
@@ -27,9 +34,13 @@ public class TaskView extends Fragment {
 
         // intialize the recyclerView and adapter
         recyclerView = returnView.findViewById(R.id.taskRecyclerView);
-        taskDataAdapter = new taskDataAdapter(
-                AppData.getInstance().loadUserData(returnView.getContext()),
-                recyclerView);
+        try {
+            taskDataAdapter = new taskDataAdapter(
+                    AppData.getInstance().loadUserData(returnView.getContext()),
+                    recyclerView);
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
 
         recyclerView.setLayoutManager(new LinearLayoutManager(returnView.getContext()));
         recyclerView.setAdapter(taskDataAdapter);

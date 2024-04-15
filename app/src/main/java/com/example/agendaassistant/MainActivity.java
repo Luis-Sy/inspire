@@ -18,7 +18,11 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
-
+/** Main Activity Class
+ * <p>Handles the bottom navigation menu functionality and loading of fragments</p>
+ *
+ * @author Luis Marlou Sy
+ * */
 public class MainActivity extends AppCompatActivity implements BottomNavigationView
         .OnNavigationItemSelectedListener {
 

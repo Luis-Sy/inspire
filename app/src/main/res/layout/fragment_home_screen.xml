@@ -11,15 +11,48 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="This is the Home Screen"
+        android:padding="25dp"
+        android:text="@string/quote_loading"
         android:textColor="#43a047"
         android:textSize="20sp"
         android:textStyle="italic|bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.201" />
+        app:layout_constraintVertical_bias="0.125" />
+
+    <TextView
+        android:id="@+id/taskCountView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:includeFontPadding="false"
+        android:padding="25dp"
+        android:text="0"
+        android:textColor="#43a047"
+        android:textSize="96sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quoteTextView"
+        app:layout_constraintVertical_bias="0.731" />
+
+    <TextView
+        android:id="@+id/taskCountHeaderText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="25dp"
+        android:text="@string/home_task_incomplete_tasks"
+        android:textColor="#43a047"
+        android:textSize="48sp"
+        android:textStyle="italic|bold"
+        app:layout_constraintBottom_toTopOf="@+id/taskCountView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quoteTextView"
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

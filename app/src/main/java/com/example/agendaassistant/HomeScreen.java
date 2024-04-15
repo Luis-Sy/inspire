@@ -16,18 +16,31 @@ import androidx.fragment.app.Fragment;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-
+/** Fragment that users will see first when opening the app
+ *
+ * @author Luis Marlou Sy
+ * */
 public class HomeScreen extends Fragment {
 
-    TextView quoteText;
+    TextView quoteText, taskCountText;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View returnView = inflater.inflate(R.layout.fragment_home_screen, container, false);
 
-        // initialize quoteText reference
+        // initialize textView references
         quoteText = returnView.findViewById(R.id.quoteTextView);
+        taskCountText = returnView.findViewById(R.id.taskCountView);
+
+        try {
+            AppData.getInstance().loadUserData(getContext());
+        } catch (JSONException e) {
+            throw new RuntimeException(e);
+        }
+        // set the text for the task counter
+        String incompleteTaskCount = String.valueOf(AppData.getInstance().getNumberOfIncompleteTasks());
+        taskCountText.setText(incompleteTaskCount);
 
         new FetchDataTask().execute(
                 "https://api.quotable.io/quotes/random?limit=1");
@@ -35,7 +48,9 @@ public class HomeScreen extends Fragment {
         return returnView;
     }
 
-    //Declaration of class for fetching data from the quotable API.
+    /** Asynchronous fetch method to get a quote from the quotable api
+     * <p>Runs whenever the home screen fragment is loaded</p>
+     * */
     private class FetchDataTask extends AsyncTask<String, Void, String> {
 
         @Override

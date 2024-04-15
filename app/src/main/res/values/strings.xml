@@ -1,9 +1,16 @@
 <resources>
     <string name="app_name">Agenda Assistant</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <!-- home screen items -->
+    <string name="home_task_no_tasks">You have no current upcoming tasks</string>
+    <string name="home_task_incomplete_tasks">Tasks Pending</string>
+    <string name="quote_loading">Loading Quote...</string>
 
+    <!-- task creation items -->
+    <string name="create_task_name_placeholder">Task Name</string>
+    <string name="create_task_deadline_placeholder">Task Deadline (DD/MM/YYYY)</string>
+    <string name="create_task_description_placeholder">Task Description (Optional)</string>
+    <string name="create_task_button_text">Create Task</string>
     <!-- task data view items -->
     <string name="task_view_data_button_incomplete">Mark as Complete</string>
     <string name="task_view_data_button_complete">Task Completed</string>
